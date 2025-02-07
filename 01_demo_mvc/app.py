@@ -1,11 +1,13 @@
 import web
 
 from controllers.index import Index as Index
+from controllers.listar_personas import Listar_personas as Listar_personas
 from controllers.agregar import Agregar as Agregar
 
 urls = (
     '/', 'Index',
-    '/insertar', 'Agregar'
+    '/agregar', 'Agregar',
+    '/listar_personas', 'Listar_personas'
 )
 
 app = web.application(urls, globals())
