@@ -1,13 +1,15 @@
 import web
-from models.insertar import Insertar
+from models.personas import Personas
 
 render = web.template.render("views", base = "master")
 
-class Insertar_personas:
+class Lista_personas:
     def GET(self):
       try:
         personas = Personas()
-        print(f"{personas.insetar_personas()}")
-        return render.insetar_personas()
+        print(f"{personas.lista_personas()}")
+        return render.lista_personas()
       except Exception as error: 
         print(error)
+
+    
