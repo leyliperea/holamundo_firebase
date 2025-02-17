@@ -1,5 +1,5 @@
 import web
-from models.insertar import Insertar
+from models.insertar import Personas
 
 render = web.template.render("views", base = "master")
 

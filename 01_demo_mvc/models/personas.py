@@ -17,12 +17,24 @@ class Personas:
     def lista_personas(self):
         try:
             personas = db.child("personas").get()
+            personas_py = [] 
+            
+            if personas.each():  
+                for item in personas.each():
+                    persona = {
+                        'id': item.key(),
+                        'nombre': item.val().get('nombre', ''),
+                        'email': item.val().get('email', '')
+                    }
+                    personas_py.append(persona)
+
             response ={
                 "status":200,
                 "message":"Todo bien",
                 "personas":dict(personas.val())
             }
             return response
+            
         except Exception as error:
             print(f"{error.args[0]}")
             response ={
